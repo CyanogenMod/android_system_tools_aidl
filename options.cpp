@@ -122,6 +122,8 @@ unique_ptr<JavaOptions> JavaOptions::Parse(int argc, const char* const* argv) {
       }
     } else if (strcmp(s, "-b") == 0) {
       options->fail_on_parcelable_ = true;
+    } else if (s[1] == 'n') {
+      options->generate_no_op_methods_ = true;
     } else {
       // s[1] is not known
       fprintf(stderr, "unknown option (%d): %s\n", i, s);
